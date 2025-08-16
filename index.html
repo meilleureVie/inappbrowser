@@ -15,8 +15,8 @@
 		}
 		function _close() {
 			if(window.newWindow) {
-				delete window.newWindow;
 				window.newWindow.close();
+				delete window.newWindow;
 			} else {
 				window.close();
 			}

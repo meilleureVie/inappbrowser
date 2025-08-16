@@ -14,10 +14,12 @@
 			console.log(url);
 		}
 		function _close() {
-			if(window.newWindow)
+			if(window.newWindow) {
+				delete window.newWindow;
 				window.newWindow.close();
-			else
+			} else {
 				window.close();
+			}
 		}
 	</script>
 </head>

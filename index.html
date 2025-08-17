@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Simple Page V1.0</title>
+    <title>My Simple Page V1.1</title>
 	<script>
 		function hello(msg) {
-			window.mobileApp.postMessage({ detail: {id: 1}});
+			// window.mobileApp.postMessage({ detail: {id: 1}});
 			window.postMessage(JSON.strignify({ detail: {id: 1}}));
 			console.log("message sent");
 		}

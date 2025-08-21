@@ -1,18 +1,36 @@
 <!DOCTYPE html>
+<!-- https://javascript.info/popup-windows -->
+<!-- https://developer.mozilla.org/en-US/docs/Web/API/Window/open -->
+ 
 <html>
 <head>
     <title>My Simple Page</title>
 	<script>
 		function hello(msg) {
-			// window.mobileApp.postMessage({ detail: {id: 1}});
-			window.postMessage(JSON.stringify({ detail: {id: 1}}));
+			window.mobileApp.postMessage({ detail: {id: 1}});
 			console.log("message sent");
+		}
+	</script>
+	<script>
+		function _open(url) {
+			//let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=0,height=0,left=-1000,top=-1000`;
+			window.newWindow = window.open(url, 'myHomeWindow', 'popup,width=800,height=600,left=100,top=100');
+			console.log(url);
+		}
+		function _close() {
+			if(window.newWindow) {
+				window.newWindow.close();
+				delete window.newWindow;
+			} else 
+				window.close();
 		}
 	</script>
 </head>
 <body>
-    <h1>Welcome to My Page V2</h1>
+    <h1>Welcome to My Page</h1>
     <p>This is a paragraph of text on my simple HTML page.</p>
 	<button onclick="hello()">Send a message</button>
+	<button onclick="_open('file:///C:/Users/amedo/OneDrive/Bureau/test.html')">Open windows</button>
+	<button onclick="_close()">Close windows</button>
 </body>
 </html>
